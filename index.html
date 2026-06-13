@@ -796,7 +796,7 @@ function toggleAcc(key){
   if(body) body.classList.toggle("open", state.accOpen[key]);
 }
 
-function toggleImgSection(id){
+window.toggleImgSection = function(id){
   var body = document.getElementById("imgbody-" + id);
   var hdr  = document.querySelector("#" + id + " .section-header");
   if(!body) return;
@@ -804,7 +804,7 @@ function toggleImgSection(id){
   if(img){ img.src = img.getAttribute("data-src"); img.removeAttribute("data-src"); }
   var isOpen = body.classList.toggle("open");
   if(hdr) hdr.classList.toggle("open", isOpen);
-}
+};
 
 window.repoSearch = function(){
   var q  = document.getElementById("repo-search").value.trim();
