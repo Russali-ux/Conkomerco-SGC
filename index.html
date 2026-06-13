@@ -40,7 +40,7 @@
   --shadow-lg: 0 8px 40px rgba(100,100,200,0.15);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;scroll-padding-top:68px;}
 body{font-family:var(--sans);background:var(--bg);color:var(--text);}
 
 /* ── TOPBAR ── */
@@ -380,8 +380,8 @@ td.depto{font-size:10px;color:var(--text3);white-space:nowrap;font-weight:700;}
   </div>
   <nav class="topbar-nav">
     <a href="#organizacion">Organización</a>
-    <a href="#procesos">Procesos</a>
-      <a href="#documentos">Documentos</a>
+    <a href="#procesos" onclick="event.preventDefault();document.getElementById('procesos').scrollIntoView({behavior:'smooth',block:'start'});">Procesos</a>
+    <a href="#documentos">Documentos</a>
   </nav>
   <div class="topbar-badges">
     <span class="badge-pill">v04ES</span>
@@ -425,7 +425,7 @@ td.depto{font-size:10px;color:var(--text3);white-space:nowrap;font-weight:700;}
 <section class="section alt" id="organizacion">
   <div class="section-header">
     <div class="section-eyebrow">01 · Presentación</div>
-    <div class="section-title"style="font-size:14px;">La Organización</div>
+    <div class="section-title"style="font-size:14px;">Organización</div>
     <div class="divider-line"></div>
   </div>
   <div class="id-grid">
