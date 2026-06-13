@@ -480,7 +480,7 @@ td.depto{font-size:10px;color:var(--text3);white-space:nowrap;font-weight:700;}
   </div>
   <div class="acc-body" id="imgbody-procesos">
   <div class="img-frame">
-    <img loading="eager" decoding="async" src="images/mapa-procesos.jpg" alt="Mapa de Procesos Conkomerco SAC" style="width:100%;height:auto;display:block;border-radius:8px;">
+    <img decoding="async" data-src="images/mapa-procesos.jpg" alt="Mapa de Procesos Conkomerco SAC" style="width:100%;height:auto;display:block;border-radius:8px;">
     <div class="img-caption" style="text-align:left;">Gráfico 1. Mapa de Procesos de Conkomerco S.A.C. · Fuente: M-02 Mapa de Procesos y Caracterización</div>
   </div>
   </div>
@@ -496,7 +496,7 @@ td.depto{font-size:10px;color:var(--text3);white-space:nowrap;font-weight:700;}
   </div>
   <div class="acc-body" id="imgbody-objetivos">
   <div class="obj-img">
-    <img loading="eager" decoding="async" src="images/objetivos.jpg" alt="Objetivos de Calidad SGC" style="width:100%;height:auto;display:block;border-radius:8px;">
+    <img decoding="async" data-src="images/objetivos.jpg" alt="Objetivos de Calidad SGC" style="width:100%;height:auto;display:block;border-radius:8px;">
     <div class="img-caption" style="text-align:left;font-size:11px;color:var(--text4);margin-top:10px;font-style:italic;font-weight:600;">Tabla de Objetivos Estratégicos y Operativos · Fuente: FT-15 Cuadro de Control de Objetivos e Indicadores del SGC</div>
   </div>
   </div>
@@ -512,7 +512,7 @@ td.depto{font-size:10px;color:var(--text3);white-space:nowrap;font-weight:700;}
   </div>
   <div class="acc-body" id="imgbody-indicadores">
   <div class="ind-img">
-    <img loading="eager" decoding="async" src="images/indicadores.jpg" alt="Indicadores del SGC" style="width:100%;height:auto;display:block;border-radius:6px;">
+    <img decoding="async" data-src="images/indicadores.jpg" alt="Indicadores del SGC" style="width:100%;height:auto;display:block;border-radius:6px;">
     <div class="img-caption" style="text-align:left;font-size:11px;color:var(--text4);margin-top:10px;font-style:italic;font-weight:600;">12 Indicadores del Sistema de Gestión de Calidad · Fuente: FT-15 Cuadro de Control de Objetivos e Indicadores del SGC</div>
   </div>
   </div>
@@ -800,6 +800,8 @@ function toggleImgSection(id){
   var body = document.getElementById("imgbody-" + id);
   var hdr  = document.querySelector("#" + id + " .section-header");
   if(!body) return;
+  var img = body.querySelector("img[data-src]");
+  if(img){ img.src = img.getAttribute("data-src"); img.removeAttribute("data-src"); }
   var isOpen = body.classList.toggle("open");
   if(hdr) hdr.classList.toggle("open", isOpen);
 }
