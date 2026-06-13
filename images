@@ -1,6 +1,0 @@
-
-cd Conkomerco-SGC
-cp /ruta/de/tus/imagenes/* images/
-git add images/
-git commit -m "Agregar imágenes"
-git push origin main
