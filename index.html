@@ -74,9 +74,11 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);}
 .hero{
   background:linear-gradient(135deg,#7c3aed 0%,#9333ea 50%,#a855f7 100%);
   padding:28px 40px 24px;
-  display:flex;flex-direction:column;align-items:center;
-  text-align:center;position:relative;overflow:hidden;
+  display:flex;flex-direction:row;align-items:center;justify-content:space-between;
+  text-align:left;position:relative;overflow:hidden;
 }
+.hero-left{display:flex;flex-direction:column;align-items:flex-start;position:relative;z-index:1;flex:1;}
+.hero-iso{height:100px;width:auto;object-fit:contain;position:relative;z-index:1;flex-shrink:0;margin-left:32px;filter:drop-shadow(0 4px 16px rgba(0,0,0,0.4));border-radius:50%;}
 .hero::before{
   content:'';position:absolute;inset:0;
   background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
@@ -391,13 +393,15 @@ td.depto{font-size:10px;color:var(--text3);white-space:nowrap;font-weight:700;}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-title"style="font-size:30px;">Sistema de Gestión de Calidad</div>
-  <div class="hero-meta">
-  <span>ISO 9001:2015</span>
-    <span>GAMP5-cat3</span>
-    <span>ALCOA+</span>
-    
+  <div class="hero-left">
+    <div class="hero-title" style="font-size:30px;">Sistema de Gestión de Calidad</div>
+    <div class="hero-meta">
+      <span>ISO 9001:2015</span>
+      <span>GAMP5-cat3</span>
+      <span>ALCOA+</span>
+    </div>
   </div>
+  <img loading="lazy" decoding="async" class="hero-iso" src="images/iso_certificado.jpg" alt="ISO 9001 Certified">
 </section>
 
 <!-- STATS -->
