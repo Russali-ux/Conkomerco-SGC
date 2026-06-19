@@ -121,6 +121,24 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);}
 .stat-num{font-size:28px;font-weight:900;color:var(--text);line-height:1;letter-spacing:-0.02em;}
 .stat-lbl{font-size:11px;color:var(--text3);margin-top:3px;font-weight:700;}
 
+/* ── QUICK ACCESS STRIP ── */
+.qa-strip{
+  display:flex;gap:12px;padding:16px 40px;
+  background:var(--white);border-bottom:1px solid var(--border);
+  flex-wrap:wrap;
+}
+.qa-card{
+  display:flex;align-items:center;gap:10px;
+  background:var(--bg);border:1px solid var(--border);border-radius:10px;
+  padding:10px 16px;text-decoration:none;
+  transition:all 0.15s;flex:1;min-width:180px;
+}
+.qa-card:hover{background:var(--purple-l);border-color:var(--purple-b);box-shadow:var(--shadow-md);}
+.qa-card:hover .qa-label{color:var(--purple);}
+.qa-icon{font-size:20px;flex-shrink:0;}
+.qa-label{font-size:12px;font-weight:800;color:var(--text2);line-height:1.3;}
+.qa-sub{font-size:10px;color:var(--text4);font-family:var(--mono);font-weight:600;margin-top:2px;}
+
 /* ── SECTION WRAPPER ── */
 .section{padding:48px 40px;}
 .section.alt{background:var(--white);}
@@ -384,7 +402,6 @@ td.depto{font-size:10px;color:var(--text3);white-space:nowrap;font-weight:700;}
     <a href="#organizacion">Organización</a>
     <a href="#procesos" onclick="event.preventDefault();document.getElementById('procesos').scrollIntoView({behavior:'smooth',block:'start'});">Procesos</a>
     <a href="#documentos">Documentos</a>
-    <a href="https://script.google.com/a/macros/conkomerco.com/s/AKfycbxqw31w1aDxt_4dGARFPSX3eQYQvA6dh6KtcQdSIgGUoa5r4CIFBnGa7OiDx9TzDQig/exec" target="_blank" rel="noopener">Generador de Minutas</a>
   </nav>
   <div class="topbar-badges">
     <span class="badge-pill">v04ES</span>
@@ -423,6 +440,31 @@ td.depto{font-size:10px;color:var(--text3);white-space:nowrap;font-weight:700;}
     <div class="stat-ico s-blue">🏢</div>
     <div><div class="stat-num">7</div><div class="stat-lbl">Departamentos</div></div>
   </div>
+</div>
+
+<!-- ACCESOS RÁPIDOS -->
+<div class="qa-strip">
+  <a class="qa-card" href="https://script.google.com/a/macros/conkomerco.com/s/AKfycbxqw31w1aDxt_4dGARFPSX3eQYQvA6dh6KtcQdSIgGUoa5r4CIFBnGa7OiDx9TzDQig/exec" target="_blank" rel="noopener">
+    <div class="qa-icon">📝</div>
+    <div>
+      <div class="qa-label">Generador de Minutas</div>
+      <div class="qa-sub">Apps Script</div>
+    </div>
+  </a>
+  <a class="qa-card" href="https://docs.google.com/spreadsheets/d/1VzF4Bgh9Bgrbmkra6X6o0EFqXgCUBU6Tg3T168tt4Sw/edit?usp=sharing" target="_blank" rel="noopener">
+    <div class="qa-icon">📋</div>
+    <div>
+      <div class="qa-label">FT-132 Auditorias</div>
+      <div class="qa-sub">Google</div>
+    </div>
+  </a>
+  <a class="qa-card" href="https://docs.google.com/spreadsheets/d/1CZJQQembLpW3L77Y2pRAtOgGgUqS0H6q97MLvuxqqhk/edit?usp=sharing" target="_blank" rel="noopener">
+    <div class="qa-icon">📊</div>
+    <div>
+      <div class="qa-label">FT-09 Matriz SNC y Mejora Continua</div>
+      <div class="qa-sub">Google</div>
+    </div>
+  </a>
 </div>
 
 <!-- ORGANIZACIÓN -->
