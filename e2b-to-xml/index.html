@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conversor E2B &rarr; XML interno · CONKOMERCO</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <p class="eyebrow">CONKOMERCO &middot; Farmacovigilancia</p>
+    <h1>Conversor E2B &rarr; XML interno</h1>
+    <p>Sube un mensaje E2B (HL7 ICH ICSR) y descarga el XML en formato interno
+       (DATA_ENTRY / RAM_Entry / MED_Entry / CON_Entry / ASSES_Entry) listo para importar.</p>
+  </div>
+</div>
+
+<main>
+  <div class="privacy">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3D1E5C" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
+    <div><strong>Todo ocurre en tu navegador.</strong> El archivo E2B no se sube a ningún servidor ni
+    se envía por internet &mdash; la conversión se ejecuta localmente con JavaScript. Puedes cerrar la
+    conexión a internet después de cargar esta página y seguirá funcionando.</div>
+  </div>
+
+  <div class="card" id="uploadCard">
+    <h2>1. Cargar E2B</h2>
+    <p class="sub">Arrastra uno o varios archivos .xml, o haz clic para elegirlos.</p>
+
+    <div class="dropzone" id="dropzone">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#5B2C82" stroke-width="1.8"><path d="M12 16V4M12 4l-4 4M12 4l4 4"/><path d="M4 16v3a2 2 0 002 2h12a2 2 0 002-2v-3"/></svg>
+      <div class="main-txt">Suelta tu(s) archivo(s) E2B aquí</div>
+      <div class="sub-txt">o haz clic para buscar &middot; formato .xml</div>
+      <input type="file" id="fileInput" accept=".xml" multiple>
+    </div>
+
+    <div class="opts" style="align-items: center;">
+      <div>
+        <label for="codCasoInput">COD_CASO (Obligatorio)</label>
+        <input type="text" id="codCasoInput" placeholder="ej. ID_027">
+      </div>
+      <div>
+        <label for="vInput">V (versión)</label>
+        <input type="text" id="vInput" placeholder="1" style="width:70px">
+      </div>
+      <div style="margin-top: 16px; display: flex; align-items: center; gap: 6px;">
+        <input type="checkbox" id="useE2bIdCheck" style="width:auto; margin:0; cursor:pointer;">
+        <label for="useE2bIdCheck" style="margin:0; font-weight:normal; cursor:pointer;">Tomar COD LOCAL del código XML E2B</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="resultsCard" style="display:none;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+      <h2 style="margin:0;">2. Resultado</h2>
+    </div>
+    <p class="sub" style="margin-top:4px;">Revisa los campos marcados como pendientes antes de importar a Excel.</p>
+    <div id="resultsList"></div>
+    <div class="legend">
+      <span><span class="dot g"></span> Extraído del E2B</span>
+      <span><span class="dot a"></span> NULL / requiere revisión manual</span>
+      <span><span class="dot r"></span> Error de lectura</span>
+    </div>
+  </div>
+
+  <button class="btn btn-reset-large" id="btnReset" style="display:none;" title="Limpiar y cargar un nuevo caso">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" style="margin-right:8px;"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 109-9 9.75 9.75 0 00-6.74 2.74L3 8"/><path d="M3 2v6h6"/></svg>
+    Procesar nuevo E2B
+  </button>
+</main>
+
+<footer>
+  Réplica en JavaScript de <code>convertidor_e2b_a_interno.py</code> (mismo mapeo de campos). Ante
+  cualquier discrepancia entre ambos, el script Python es la referencia &mdash; repórtala para
+  corregir esta página. &middot; CONKOMERCO S.A.C.
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
